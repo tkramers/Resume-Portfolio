@@ -39,25 +39,26 @@ header p {
 }
 
 /* About Me Section */
-#about h2 {
-    font-size: 2rem; /* Match the font size of Education section */
-    text-align: center; /* Center the title */
-    margin-bottom: 20px;
-}
-
 #about-me {
-    font-size: 18px; /* Adjust this if you want the About Me text slightly larger */
+    font-size: 16px; /* Adjust this if needed */
     line-height: 1.6;
     color: #333;
     max-width: 600px; /* Keeps text readable */
-    margin: auto; /* Centers the text block within the container */
-    padding: 0 20px; /* Optional: Adds padding to prevent text from touching the edges */
+    margin: 0 auto; /* Center the container itself */
+    padding: 0 20px; /* Optional: Adds space on the sides of the text */
+}
+
+#about h2 {
+    font-size: 2rem; /* Title size */
+    text-align: center; /* Centers the title */
+    margin-bottom: 20px; /* Adds space below the title */
 }
 
 #about p {
     font-size: 1.125rem;
-    margin-top: 20px;
+    margin-top: 20px; /* Adds space between title and text */
 }
+
 
 
 /* Education Section */
