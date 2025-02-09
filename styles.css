@@ -50,13 +50,15 @@ header p {
     line-height: 1.6;
     color: #333;
     max-width: 600px; /* Keeps text readable */
-    margin: auto;
+    margin: auto; /* Centers the text block within the container */
+    padding: 0 20px; /* Optional: Adds padding to prevent text from touching the edges */
 }
 
 #about p {
     font-size: 1.125rem;
     margin-top: 20px;
 }
+
 
 /* Education Section */
 #education {
