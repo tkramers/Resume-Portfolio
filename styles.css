@@ -1,26 +1,18 @@
-/* General Reset */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-/* Body */
+/* General Styling */
 body {
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
-    background-color: #f4f4f4;
+    font-family: 'Poppins', sans-serif;
+    background-color: #F7F9FC;
     color: #333;
     margin: 0;
     padding: 0;
+    text-align: center;
 }
 
-/* Header */
+/* Header Section */
 header {
-    background-color: #333;
+    background-color: #2C3E50;
     color: white;
-    text-align: center;
-    padding: 20px 0;
+    padding: 40px 20px;
 }
 
 header h1 {
@@ -30,151 +22,87 @@ header h1 {
 
 header img {
     border-radius: 50%;
-    margin-bottom: 10px;
+    border: 5px solid white;
+    margin: 10px 0;
 }
 
-header p {
-    font-size: 1.25rem;
-    margin-bottom: 10px;
-}
-
-/* About Me Section */
-#about-me {
-    font-size: 16px; /* Adjust this if needed */
-    line-height: 1.6;
-    color: #333;
-    max-width: 600px; /* Keeps text readable */
-    margin: 0 auto; /* Center the container itself */
-    padding: 0 20px; /* Optional: Adds space on the sides of the text */
-}
-
-#about h2 {
-    font-size: 2rem; /* Title size */
-    text-align: center; /* Centers the title */
-    margin-bottom: 20px; /* Adds space below the title */
-}
-
-#about p {
-    font-size: 1.125rem;
-    margin-top: 20px; /* Adds space between title and text */
-}
-
-
-
-/* Education Section */
-#education {
+/* Section Styling */
+section {
+    margin: 50px auto;
     padding: 40px 20px;
-    background-color: #e9ecef;
+    max-width: 800px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-#education h2 {
+/* Titles */
+h2 {
+    color: #E74C3C;
     font-size: 2rem;
-    text-align: center;
+    text-transform: uppercase;
     margin-bottom: 20px;
-}
-
-.education {
-    background-color: white;
-    padding: 15px;
-    margin-bottom: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-.Education h3 {
-    font-size: 1.5rem;
-    margin-bottom: 5px;
-}
-
-.Education p {
-    font-size: 1rem;
-    margin-bottom: 5px;
 }
 
 /* Projects Section */
-#projects {
-    padding: 40px 20px;
-    background-color: white;
-}
-
-#projects h2 {
-    font-size: 2rem;
-    text-align: center;
-    margin-bottom: 20px;
-}
-
 .project {
-    background-color: #f8f9fa;
-    padding: 15px;
-    margin-bottom: 20px;
+    background: #ECF0F1;
+    padding: 20px;
+    margin: 20px 0;
     border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
 }
 
-.project h3 {
-    font-size: 1.5rem;
-    margin-bottom: 5px;
-}
-
-.project p {
-    font-size: 1rem;
+.project:hover {
+    transform: scale(1.05);
 }
 
 /* Contact Section */
-#contact {
-    padding: 40px 20px;
-    background-color: #e9ecef;
-}
-
-#contact h2 {
-    font-size: 2rem;
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-#contact p {
-    font-size: 1.125rem;
-    text-align: center;
-    margin-bottom: 10px;
-}
-
 #contact a {
-    color: #007bff;
+    color: #E74C3C;
+    font-weight: bold;
     text-decoration: none;
+    transition: 0.3s;
 }
 
 #contact a:hover {
+    color: #C0392B;
     text-decoration: underline;
+}
+
+/* Resume Button */
+.button {
+    background: #E74C3C;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background 0.3s;
+    display: inline-block;
+    margin-top: 15px;
+}
+
+.button:hover {
+    background: #C0392B;
+}
+
+/* Animations */
+.hidden {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.visible {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 /* Footer */
 footer {
-    background-color: #333;
+    background-color: #2C3E50;
     color: white;
-    text-align: center;
-    padding: 15px 0;
-}
-
-footer p {
-    font-size: 1rem;
-}
-
-/* Media Queries for Mobile Responsiveness */
-@media (max-width: 768px) {
-    header h1 {
-        font-size: 2rem;
-    }
-
-    header img {
-        width: 150px;
-        height: 150px;
-    }
-
-    #about p, #education p, #projects p, #contact p {
-        font-size: 1rem;
-    }
-
-    .Education, .project {
-        padding: 10px;
-    }
+    padding: 20px;
+    font-size: 0.9rem;
 }
