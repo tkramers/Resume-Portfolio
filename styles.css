@@ -1,163 +1,72 @@
-/* General Reset */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-/* Body */
 body {
     font-family: Arial, sans-serif;
-    line-height: 1.6;
-    background-color: #f4f4f4;
-    color: #333;
     margin: 0;
     padding: 0;
+    text-align: center;
+    background-color: #f8f8f8;
 }
 
-/* Header */
 header {
-    background-color: #333;
+    background-color: #4A90E2;
     color: white;
-    text-align: center;
-    padding: 20px 0;
+    padding: 20px;
 }
 
-header h1 {
+h1 {
+    margin: 0;
     font-size: 2.5rem;
-    margin-bottom: 10px;
 }
 
-header img {
-    border-radius: 50%;
-    margin-bottom: 10px;
+p {
+    font-size: 1.2rem;
 }
 
-header p {
-    font-size: 1.25rem;
-    margin-bottom: 10px;
+section {
+    margin: 40px auto;
+    padding: 20px;
+    max-width: 900px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-/* About Section - FIXED */
-#about {
-    width: 90%;
-    margin: 0 auto;
+h2 {
     text-align: center;
+    font-size: 2rem;
+    color: #333;
 }
 
 #about-me {
-    display: block; /* Ensures full expansion */
     font-size: 1.2rem;
     line-height: 1.6;
     max-width: 800px;
-    min-height: auto; /* Auto-adjust height */
     padding: 20px;
     margin: 0 auto;
     background-color: white;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    word-wrap: break-word; /* Ensures words don’t overflow */
-    overflow: visible; /* Allows full text display */
-    white-space: normal; /* Prevents text from being cut off */
+    word-wrap: break-word;
+    white-space: normal;
+    overflow-wrap: break-word;
+    display: block;
 }
 
-/* Education Section */
-#education {
-    padding: 40px 20px;
-    background-color: #e9ecef;
-    text-align: center;
-}
-
-#education h2 {
-    font-size: 2rem;
-    margin-bottom: 20px;
-}
-
-.education {
-    background-color: white;
+.education, .project {
+    text-align: left;
     padding: 15px;
-    margin: 10px auto;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    max-width: 600px;
+    margin: 10px 0;
+    background: #f0f0f0;
+    border-radius: 5px;
 }
 
-/* Projects Section */
-#projects {
-    padding: 40px 20px;
-    background-color: white;
-    text-align: center;
-}
-
-#projects h2 {
-    font-size: 2rem;
-    margin-bottom: 20px;
-}
-
-.project {
-    background-color: #f8f9fa;
-    padding: 15px;
-    margin: 10px auto;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    max-width: 600px;
-}
-
-/* Contact Section */
-#contact {
-    padding: 40px 20px;
-    background-color: #e9ecef;
-    text-align: center;
-}
-
-#contact h2 {
-    font-size: 2rem;
-    margin-bottom: 20px;
-}
-
-#contact p {
-    font-size: 1.125rem;
-    margin-bottom: 10px;
-}
-
-#contact a {
-    color: #007bff;
+a {
+    color: #4A90E2;
     text-decoration: none;
 }
 
-#contact a:hover {
-    text-decoration: underline;
-}
-
-/* Footer */
 footer {
-    background-color: #333;
+    margin-top: 40px;
+    padding: 20px;
+    background: #4A90E2;
     color: white;
-    text-align: center;
-    padding: 15px 0;
-}
-
-footer p {
-    font-size: 1rem;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    header h1 {
-        font-size: 2rem;
-    }
-
-    header img {
-        width: 150px;
-        height: 150px;
-    }
-
-    #about-me, .education, .project {
-        max-width: 90%;
-        padding: 15px;
-    }
-
-    #about p, #education p, #projects p, #contact p {
-        font-size: 1rem;
-    }
 }
