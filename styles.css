@@ -6,6 +6,8 @@ body {
     margin: 0;
     padding: 0;
     text-align: center;
+    color: black; /* Change this if text isn't visible */
+
 }
 
 /* Header Section */
