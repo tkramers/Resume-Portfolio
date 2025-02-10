@@ -1,72 +1,112 @@
+/* General Page Styles */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Arial', sans-serif;
+    background-color: #FFFFFF;
+    color: #000000;
     margin: 0;
     padding: 0;
-    text-align: center;
-    background-color: #f8f8f8;
 }
 
+/* Header Styling */
 header {
-    background-color: #4A90E2;
+    background: linear-gradient(to right, #1E3A8A, #4A90E2);
     color: white;
-    padding: 20px;
+    padding: 30px;
+    text-align: center;
 }
 
-h1 {
+header h1 {
     margin: 0;
     font-size: 2.5rem;
 }
 
-p {
-    font-size: 1.2rem;
+/* Navigation Bar */
+nav {
+    background-color: #000000;
+    padding: 10px;
+    text-align: center;
 }
 
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+nav ul li a:hover {
+    color: #4A90E2; /* Light Blue */
+}
+
+/* Section Styling */
 section {
     margin: 40px auto;
-    padding: 20px;
+    padding: 30px;
     max-width: 900px;
-    background: white;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-h2 {
-    text-align: center;
-    font-size: 2rem;
-    color: #333;
+/* About Me Section */
+#about {
+    background-color: #E6F0FF; /* Very Light Blue */
+    border-left: 5px solid #1E3A8A;
 }
 
-#about-me {
-    font-size: 1.2rem;
-    line-height: 1.6;
-    max-width: 800px;
-    padding: 20px;
-    margin: 0 auto;
-    background-color: white;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    word-wrap: break-word;
-    white-space: normal;
-    overflow-wrap: break-word;
-    display: block;
+/* Education Section */
+#education {
+    background-color: #F5F5F5; /* Light Gray */
+    border-left: 5px solid #4A90E2;
 }
 
-.education, .project {
-    text-align: left;
-    padding: 15px;
-    margin: 10px 0;
-    background: #f0f0f0;
-    border-radius: 5px;
+/* Projects Section */
+#projects {
+    background-color: #FFFFFF;
+    border-left: 5px solid #1E3A8A;
 }
 
-a {
+/* Contact Section */
+#contact {
+    background-color: #000000;
+    color: white;
+    border-left: 5px solid #4A90E2;
+}
+
+#contact a {
     color: #4A90E2;
     text-decoration: none;
+    font-weight: bold;
 }
 
-footer {
-    margin-top: 40px;
-    padding: 20px;
-    background: #4A90E2;
+#contact a:hover {
     color: white;
+}
+
+/* Section Headers */
+h2 {
+    background-color: #1E3A8A;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+/* Footer */
+footer {
+    background-color: #1E3A8A;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    margin-top: 20px;
 }
