@@ -1,102 +1,83 @@
 /* General Styles */
 body {
     font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
-    color: #333;
 }
 
-/* Header */
-header {
-    text-align: center;
-    background: #004c97;
-    color: white;
-    padding: 30px 20px;
-}
-
-header h1 {
-    margin: 10px 0;
-    font-size: 2.5rem;
-}
-
-header img {
-    border-radius: 50%;
-    margin-top: 15px;
-}
-
-header p {
-    font-size: 1.2rem;
-    font-weight: bold;
-}
-
-/* Navigation */
+/* Navigation Bar Styles */
 nav {
+    background-color: #333;
+    padding: 10px 20px;
     text-align: center;
-    background: #003366;
-    padding: 15px 0;
 }
 
 nav a {
     color: white;
+    padding: 10px;
     text-decoration: none;
-    margin: 0 20px;
-    font-size: 1.2rem;
-    font-weight: bold;
-    transition: 0.3s;
+    margin: 0 15px;
+    font-size: 18px;
 }
 
 nav a:hover {
-    color: #ffcc00;
+    background-color: #575757;
+    border-radius: 4px;
 }
 
-/* Sections */
-section {
-    width: 80%;
-    margin: 40px auto;
-    padding: 20px;
-    background: white;
-    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
-}
-
-h2 {
-    color: #004c97;
-    border-bottom: 3px solid #ffcc00;
-    padding-bottom: 10px;
-}
-
-p {
-    line-height: 1.6;
-}
-
-/* Projects */
-.project iframe {
-    border: none;
-    border-radius: 10px;
-}
-
-/* Contact Section */
-#contact p {
-    font-size: 1.1rem;
-}
-
-#contact a {
-    color: #004c97;
-    font-weight: bold;
-    text-decoration: none;
-}
-
-#contact a:hover {
-    text-decoration: underline;
-}
-
-/* Footer */
-footer {
+/* Experience Section */
+#experience {
+    padding: 40px;
     text-align: center;
-    padding: 15px;
-    background: #004c97;
-    color: white;
-    margin-top: 20px;
 }
-ChatGPT said:
+
+#experience h2 {
+    font-size: 32px;
+    color: #333;
+}
+
+/* Individual Experience Box Styling */
+.experience-item.box {
+    background-color: #ADD8E6; /* Light blue color */
+    border-radius: 12px; /* Rounded edges */
+    padding: 20px;
+    margin: 20px 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.experience-item.box:hover {
+    transform: scale(1.02);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.experience-item h3 {
+    color: #333;
+    font-size: 24px;
+}
+
+.experience-item p {
+    color: #666;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.experience-item ul {
+    list-style-type: none;
+    padding-left: 0;
+    color: #555;
+}
+
+.experience-item ul li {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+}
