@@ -5,7 +5,65 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Projects - Tess Kramer</title>
     <link rel="stylesheet" href="styles.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.14.305/pdf.min.js"></script>
+    
+    <!-- Import PDF.js as a module -->
+    <script type="module">
+        import pdfjsLib from './js/pdf.mjs';
+
+        pdfjsLib.GlobalWorkerOptions.workerSrc = './js/pdf.worker.mjs';
+
+        let pdfDoc = null,
+            pageNum = 1,
+            scale = 1.5,
+            canvas = null,
+            ctx = null;
+
+        document.addEventListener("DOMContentLoaded", () => {
+            canvas = document.getElementById('pdfViewer');
+            ctx = canvas.getContext('2d');
+
+            loadPDF('Wine_Quality_Analysis.pdf');
+        });
+
+        // Load the PDF
+        const loadPDF = async (url) => {
+            pdfDoc = await pdfjsLib.getDocument(url).promise;
+            document.getElementById('nextPage').disabled = pdfDoc.numPages === 1; // Disable Next button if only one page
+            renderPage(pageNum);
+        };
+
+        // Render the current page
+        const renderPage = async (num) => {
+            const page = await pdfDoc.getPage(num);
+            const viewport = page.getViewport({ scale });
+            canvas.height = viewport.height;
+            canvas.width = viewport.width;
+
+            const renderContext = {
+                canvasContext: ctx,
+                viewport: viewport
+            };
+            await page.render(renderContext);
+
+            // Update button states
+            document.getElementById('prevPage').disabled = pageNum === 1;
+            document.getElementById('nextPage').disabled = pageNum === pdfDoc.numPages;
+        };
+
+        // Go to Previous Page
+        window.prevPage = () => {
+            if (pageNum <= 1) return;
+            pageNum--;
+            renderPage(pageNum);
+        };
+
+        // Go to Next Page
+        window.nextPage = () => {
+            if (pageNum >= pdfDoc.numPages) return;
+            pageNum++;
+            renderPage(pageNum);
+        };
+    </script>
 </head>
 <body>
 
@@ -28,8 +86,8 @@
 
             <!-- Navigation Buttons -->
             <div>
-                <button onclick="prevPage()">Previous</button>
-                <button onclick="nextPage()">Next</button>
+                <button id="prevPage" onclick="prevPage()" disabled>Previous</button>
+                <button id="nextPage" onclick="nextPage()">Next</button>
             </div>
         </div>
     </section>
@@ -37,59 +95,6 @@
     <footer>
         <p>© 2025 Tess Kramer. All rights reserved.</p>
     </footer>
-
-    <script>
-        let url = 'https://drive.google.com/uc?export=download&id=1GADGLVq0QiT_L339V2DcXT_Lo514JwrP'; // Direct link to the PDF
-        let pdfDoc = null,
-            pageNum = 1,
-            pageIsRendering = false,
-            pageNumPending = null;
-        const scale = 1.5,
-              canvas = document.getElementById('pdfViewer'),
-              ctx = canvas.getContext('2d');
-
-        // Load PDF
-        pdfjsLib.getDocument(url).promise.then(pdfDoc_ => {
-            pdfDoc = pdfDoc_;
-            renderPage(pageNum);
-        });
-
-        // Render Page
-        function renderPage(num) {
-            pageIsRendering = true;
-            pdfDoc.getPage(num).then(page => {
-                const viewport = page.getViewport({ scale });
-                canvas.height = viewport.height;
-                canvas.width = viewport.width;
-
-                const renderContext = {
-                    canvasContext: ctx,
-                    viewport: viewport
-                };
-                page.render(renderContext).promise.then(() => {
-                    pageIsRendering = false;
-                    if (pageNumPending !== null) {
-                        renderPage(pageNumPending);
-                        pageNumPending = null;
-                    }
-                });
-            });
-        }
-
-        // Go to Previous Page
-        function prevPage() {
-            if (pageNum <= 1) return;
-            pageNum--;
-            renderPage(pageNum);
-        }
-
-        // Go to Next Page
-        function nextPage() {
-            if (pageNum >= pdfDoc.numPages) return;
-            pageNum++;
-            renderPage(pageNum);
-        }
-    </script>
 
 </body>
 </html>
