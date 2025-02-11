@@ -5,9 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Projects - Tess Kramer</title>
     <link rel="stylesheet" href="styles.css">
-    
+
     <!-- Import PDF.js as a module -->
     <script type="module">
+        console.log('Script loaded');  // Verify the script is loading
         import pdfjsLib from './js/pdf.mjs';
 
         // Set the path for the worker script
@@ -20,6 +21,7 @@
             ctx = null;
 
         document.addEventListener("DOMContentLoaded", () => {
+            console.log('DOM fully loaded'); // Check when DOM is ready
             canvas = document.getElementById('pdfViewer');
             ctx = canvas.getContext('2d');
 
@@ -31,6 +33,7 @@
         // Load the PDF
         const loadPDF = async (url) => {
             try {
+                console.log("Loading PDF...");
                 pdfDoc = await pdfjsLib.getDocument(url).promise;
                 console.log("PDF Loaded");
                 renderPage(pageNum);
@@ -52,7 +55,7 @@
                     viewport: viewport
                 };
                 await page.render(renderContext);
-                
+
                 // Update button states
                 document.getElementById('prevPage').disabled = pageNum === 1;
                 document.getElementById('nextPage').disabled = pageNum === pdfDoc.numPages;
@@ -93,7 +96,7 @@
             <p>Analysis of what variables contribute to the best wine quality. Click below to navigate through the slides.</p>
 
             <!-- PDF Viewer Canvas -->
-            <canvas id="pdfViewer"></canvas>
+            <canvas id="pdfViewer" style="border: 1px solid #000;"></canvas>
 
             <!-- Navigation Buttons -->
             <div>
@@ -106,3 +109,5 @@
     <footer>
         <p>© 2025 Tess Kramer. All rights reserved.</p>
     </footer>
+</body>
+</html>
