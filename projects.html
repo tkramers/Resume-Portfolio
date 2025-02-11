@@ -5,69 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Projects - Tess Kramer</title>
     <link rel="stylesheet" href="styles.css">
-
-    <!-- Import PDF.js as a module -->
-    <script type="module">
-        import pdfjsLib from './js/pdf.mjs';
-        // Set the path for the worker script
-        pdfjsLib.GlobalWorkerOptions.workerSrc = './js/pdf.worker.mjs';
-        let pdfDoc = null,
-            pageNum = 1,
-            scale = 1.5,
-            canvas = null,
-            ctx = null;
-        document.addEventListener("DOMContentLoaded", () => {
-            canvas = document.getElementById('pdfViewer');
-            ctx = canvas.getContext('2d');
-            // Update PDF file path to match the correct file name
-            const pdfUrl = './Wine-Quality-Presentation.pdf';  // Corrected PDF path
-            loadPDF(pdfUrl);
-        });
-        // Load the PDF
-        const loadPDF = async (url) => {
-            try {
-                pdfDoc = await pdfjsLib.getDocument(url).promise;
-                console.log("PDF Loaded");
-                renderPage(pageNum);
-            } catch (error) {
-                console.error("Error loading PDF: ", error);
-            }
-        };
-        // Render the current page
-        const renderPage = async (num) => {
-            try {
-                const page = await pdfDoc.getPage(num);
-                const viewport = page.getViewport({ scale });
-                canvas.height = viewport.height;
-                canvas.width = viewport.width;
-                const renderContext = {
-                    canvasContext: ctx,
-                    viewport: viewport
-                };
-                await page.render(renderContext);
-
-                // Update button states
-                document.getElementById('prevPage').disabled = pageNum === 1;
-                document.getElementById('nextPage').disabled = pageNum === pdfDoc.numPages;
-            } catch (error) {
-                console.error("Error rendering page: ", error);
-            }
-        };
-        // Go to Previous Page
-        window.prevPage = () => {
-            if (pageNum <= 1) return;
-            pageNum--;
-            renderPage(pageNum);
-        };
-        // Go to Next Page
-        window.nextPage = () => {
-            if (pageNum >= pdfDoc.numPages) return;
-            pageNum++;
-            renderPage(pageNum);
-        };
-    </script>
 </head>
 <body>
+
     <nav>
         <a href="index.html">Home</a>
         <a href="projects.html">Projects</a>
@@ -75,22 +15,26 @@
         <a href="education.html">Education</a>
         <a href="contact.html">Contact</a>
     </nav>
+
     <section id="projects">
         <h2>Projects</h2>
         <div class="project">
             <h3>Wine Quality Analysis</h3>
-            <p>Analysis of what variables contribute to the best wine quality. Click below to navigate through the slides.</p>
-            <!-- PDF Viewer Canvas -->
-            <canvas id="pdfViewer"></canvas>
-            <!-- Navigation Buttons -->
-            <div>
-                <button id="prevPage" onclick="prevPage()" disabled>Previous</button>
-                <button id="nextPage" onclick="nextPage()">Next</button>
-            </div>
+            <p>Analysis of what variables contribute to the best wine quality. Click below to view the full slide deck.</p>
+
+            <!-- Google Drive Embedded PDF -->
+            <iframe src="https://drive.google.com/file/d/1GADGLVq0QiT_L339V2DcXT_Lo514JwrP/preview" 
+                    width="100%" height="500px">
+            </iframe>
+
+            <p><a href="https://drive.google.com/file/d/1GADGLVq0QiT_L339V2DcXT_Lo514JwrP/view?usp=sharing" target="_blank">
+                Click here to view the PDF in a new tab</a></p>
         </div>
     </section>
+
     <footer>
         <p>© 2025 Tess Kramer. All rights reserved.</p>
     </footer>
+
 </body>
 </html>
