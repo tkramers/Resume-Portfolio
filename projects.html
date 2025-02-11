@@ -10,6 +10,7 @@
     <script type="module">
         import pdfjsLib from './js/pdf.mjs';
 
+        // Set the path for the worker script
         pdfjsLib.GlobalWorkerOptions.workerSrc = './js/pdf.worker.mjs';
 
         let pdfDoc = null,
@@ -22,32 +23,42 @@
             canvas = document.getElementById('pdfViewer');
             ctx = canvas.getContext('2d');
 
-            loadPDF('Wine_Quality_Analysis.pdf');
+            // Update PDF file path if necessary
+            const pdfUrl = './Wine_Quality_Analysis.pdf';  // Adjust if the path is different
+            loadPDF(pdfUrl);
         });
 
         // Load the PDF
         const loadPDF = async (url) => {
-            pdfDoc = await pdfjsLib.getDocument(url).promise;
-            document.getElementById('nextPage').disabled = pdfDoc.numPages === 1; // Disable Next button if only one page
-            renderPage(pageNum);
+            try {
+                pdfDoc = await pdfjsLib.getDocument(url).promise;
+                console.log("PDF Loaded");
+                renderPage(pageNum);
+            } catch (error) {
+                console.error("Error loading PDF: ", error);
+            }
         };
 
         // Render the current page
         const renderPage = async (num) => {
-            const page = await pdfDoc.getPage(num);
-            const viewport = page.getViewport({ scale });
-            canvas.height = viewport.height;
-            canvas.width = viewport.width;
+            try {
+                const page = await pdfDoc.getPage(num);
+                const viewport = page.getViewport({ scale });
+                canvas.height = viewport.height;
+                canvas.width = viewport.width;
 
-            const renderContext = {
-                canvasContext: ctx,
-                viewport: viewport
-            };
-            await page.render(renderContext);
-
-            // Update button states
-            document.getElementById('prevPage').disabled = pageNum === 1;
-            document.getElementById('nextPage').disabled = pageNum === pdfDoc.numPages;
+                const renderContext = {
+                    canvasContext: ctx,
+                    viewport: viewport
+                };
+                await page.render(renderContext);
+                
+                // Update button states
+                document.getElementById('prevPage').disabled = pageNum === 1;
+                document.getElementById('nextPage').disabled = pageNum === pdfDoc.numPages;
+            } catch (error) {
+                console.error("Error rendering page: ", error);
+            }
         };
 
         // Go to Previous Page
