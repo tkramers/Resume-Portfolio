@@ -5,94 +5,60 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Projects - Tess Kramer</title>
     <link rel="stylesheet" href="styles.css">
-    
-    <!-- Import PDF.js library -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+    <!-- PDF.js CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
     <script>
-        // Initialize PDF.js
-        pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+        // Wait for the page to load
+        window.addEventListener('load', function() {
+            const pdfjsLib = window['pdfjs-dist/build/pdf'];
+            pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.worker.min.js';
 
-        let pdfDoc = null;
-        let pageNum = 1;
-        let pageRendering = false;
-        let pageNumPending = null;
-        let scale = 1.5;
-        let canvas = null;
-        let ctx = null;
-
-        function renderPage(num) {
-            pageRendering = true;
-            
-            // Update page counters
-            document.getElementById('page_num').textContent = num;
-            
-            // Get page
-            pdfDoc.getPage(num).then(function(page) {
-                const viewport = page.getViewport({scale: scale});
-                canvas.height = viewport.height;
-                canvas.width = viewport.width;
-
-                // Render PDF page into canvas context
-                const renderContext = {
-                    canvasContext: ctx,
-                    viewport: viewport
-                };
-                
-                const renderTask = page.render(renderContext);
-
-                // Wait for rendering to finish
-                renderTask.promise.then(function() {
-                    pageRendering = false;
-                    if (pageNumPending !== null) {
-                        // New page rendering is pending
-                        renderPage(pageNumPending);
-                        pageNumPending = null;
-                    }
-                });
-            });
-        }
-
-        function queueRenderPage(num) {
-            if (pageRendering) {
-                pageNumPending = num;
-            } else {
-                renderPage(num);
-            }
-        }
-
-        function onPrevPage() {
-            if (pageNum <= 1) {
-                return;
-            }
-            pageNum--;
-            queueRenderPage(pageNum);
-        }
-
-        function onNextPage() {
-            if (pageNum >= pdfDoc.numPages) {
-                return;
-            }
-            pageNum++;
-            queueRenderPage(pageNum);
-        }
-
-        // Initialize after page loads
-        document.addEventListener('DOMContentLoaded', function() {
-            canvas = document.getElementById('pdf-canvas');
-            ctx = canvas.getContext('2d');
+            let currentPage = 1;
+            let pdf = null;
 
             // Load the PDF
-            const url = './Wine-Quality-Presentation.pdf';
-            
-            pdfjsLib.getDocument(url).promise.then(function(pdfDoc_) {
-                pdfDoc = pdfDoc_;
-                document.getElementById('page_count').textContent = pdfDoc.numPages;
+            pdfjsLib.getDocument('./Wine-Quality-Presentation.pdf').promise
+                .then(function(pdfDoc) {
+                    pdf = pdfDoc;
+                    document.getElementById('pageCount').textContent = pdf.numPages;
+                    renderPage(currentPage);
+                })
+                .catch(function(error) {
+                    console.error('Error loading PDF:', error);
+                    document.getElementById('pdfContainer').innerHTML = '<p class="error">Error loading PDF. Please make sure the file exists.</p>';
+                });
 
-                // Initial/first page rendering
-                renderPage(pageNum);
-            }).catch(function(error) {
-                console.error('Error loading PDF:', error);
-                document.getElementById('pdf-error').style.display = 'block';
+            function renderPage(pageNumber) {
+                pdf.getPage(pageNumber).then(function(page) {
+                    const canvas = document.getElementById('pdfCanvas');
+                    const context = canvas.getContext('2d');
+                    const viewport = page.getViewport({ scale: 1.5 });
+
+                    canvas.width = viewport.width;
+                    canvas.height = viewport.height;
+
+                    page.render({
+                        canvasContext: context,
+                        viewport: viewport
+                    });
+
+                    document.getElementById('currentPage').textContent = pageNumber;
+                });
+            }
+
+            // Button event listeners
+            document.getElementById('prevBtn').addEventListener('click', function() {
+                if (currentPage > 1) {
+                    currentPage--;
+                    renderPage(currentPage);
+                }
+            });
+
+            document.getElementById('nextBtn').addEventListener('click', function() {
+                if (currentPage < pdf.numPages) {
+                    currentPage++;
+                    renderPage(currentPage);
+                }
             });
         });
     </script>
@@ -105,25 +71,24 @@
         <a href="education.html">Education</a>
         <a href="contact.html">Contact</a>
     </nav>
+
     <section id="projects">
         <h2>Projects</h2>
         <div class="project">
             <h3>Wine Quality Analysis</h3>
             <p>Analysis of what variables contribute to the best wine quality. Click below to navigate through the slides.</p>
             
-            <div id="pdf-container">
-                <div id="pdf-error" style="display: none;">
-                    Error loading PDF. Please make sure the file exists and try again.
-                </div>
-                <canvas id="pdf-canvas"></canvas>
-                <div id="pdf-controls">
-                    <button onclick="onPrevPage()">Previous</button>
-                    <span>Page: <span id="page_num"></span> / <span id="page_count"></span></span>
-                    <button onclick="onNextPage()">Next</button>
+            <div id="pdfContainer">
+                <canvas id="pdfCanvas"></canvas>
+                <div class="pdfControls">
+                    <button id="prevBtn">Previous</button>
+                    <span>Page <span id="currentPage">1</span> of <span id="pageCount">-</span></span>
+                    <button id="nextBtn">Next</button>
                 </div>
             </div>
         </div>
     </section>
+
     <footer>
         <p>© 2025 Tess Kramer. All rights reserved.</p>
     </footer>
