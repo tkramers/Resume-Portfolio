@@ -26,6 +26,17 @@ nav a:hover {
     border-radius: 4px;
 }
 
+/* Home Section */
+#home {
+    padding: 40px;
+    text-align: center;
+}
+
+#home h1 {
+    font-size: 32px;
+    color: #333;
+}
+
 /* Experience Section */
 #experience {
     padding: 40px;
