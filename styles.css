@@ -1,51 +1,43 @@
 /* Add these styles to your existing styles.css file */
 
-#pdf-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 20px 0;
+#pdfContainer {
     width: 100%;
+    max-width: 1000px;
+    margin: 20px auto;
+    text-align: center;
 }
 
-#pdf-canvas {
+#pdfCanvas {
     max-width: 100%;
     height: auto;
     margin: 20px 0;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    border: 1px solid #ccc;
 }
 
-#pdf-controls {
+.pdfControls {
+    margin: 15px 0;
     display: flex;
-    gap: 20px;
+    justify-content: center;
     align-items: center;
-    margin: 10px 0;
+    gap: 15px;
 }
 
-#pdf-controls button {
+.pdfControls button {
     background-color: #004c97;
     color: white;
     border: none;
     padding: 8px 16px;
     border-radius: 4px;
     cursor: pointer;
-    transition: background-color 0.3s;
 }
 
-#pdf-controls button:hover {
+.pdfControls button:hover {
     background-color: #003366;
 }
 
-#pdf-controls button:disabled {
-    background-color: #cccccc;
-    cursor: not-allowed;
-}
-
-#pdf-error {
-    color: #ff0000;
-    background-color: #ffe6e6;
-    padding: 10px;
+.error {
+    color: red;
+    padding: 20px;
+    background-color: #ffebee;
     border-radius: 4px;
-    margin: 10px 0;
-    text-align: center;
 }
