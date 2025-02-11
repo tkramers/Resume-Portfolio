@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Projects - Tess Kramer</title>
     <link rel="stylesheet" href="styles.css">
-    
+
     <!-- Import PDF.js as a module -->
     <script type="module">
         import pdfjsLib from './js/pdf.mjs';
@@ -45,7 +45,7 @@
                     viewport: viewport
                 };
                 await page.render(renderContext);
-                
+
                 // Update button states
                 document.getElementById('prevPage').disabled = pageNum === 1;
                 document.getElementById('nextPage').disabled = pageNum === pdfDoc.numPages;
