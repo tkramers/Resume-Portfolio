@@ -2,14 +2,20 @@
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    box-sizing: border-box; /* Ensures padding doesn't add to total width */
 }
 
-body {
+html, body {
+    height: 100%;
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
-    margin: 0;
-    padding: 0;
+    margin: 0; /* Ensure there's no margin around the body */
+    padding: 0; /* Ensure there's no padding around the body */
+}
+
+/* Ensure no overflow */
+body {
+    overflow-x: hidden; /* Prevent horizontal scroll */
 }
 
 /* Navigation Bar Styles */
@@ -17,7 +23,7 @@ nav {
     background-color: #333;
     padding: 10px 20px;
     text-align: center;
-    margin-bottom: 20px; /* Add space below the navbar */
+    margin-bottom: 20px; /* Add space below navbar */
 }
 
 nav a {
@@ -57,21 +63,22 @@ header p {
 
 /* About Me Section */
 #about {
-    padding: 40px 20px; /* Add padding */
-    text-align: center;
-    margin-bottom: 40px; /* Margin below the About Me section */
-    background-color: #ffffff; /* Set a background color for better visibility */
+    padding: 40px 20px; /* Add padding to left and right */
+    margin: 0 auto; /* Center the section */
+    max-width: 1200px; /* Max width for better alignment */
+    background-color: #ffffff; /* White background for About Me section */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for contrast */
 }
 
 #about h2 {
     font-size: 32px;
     color: #333;
-    margin-bottom: 20px; /* Margin below the heading */
+    margin-bottom: 20px; /* Space below heading */
 }
 
 #about-me {
-    max-width: 800px; /* Limit the width to prevent long lines of text */
-    margin: 0 auto; /* Center the content */
+    max-width: 800px; /* Limit content width */
+    margin: 0 auto; /* Center content */
     padding: 20px;
 }
 
@@ -138,23 +145,4 @@ footer {
 .experience-item ul li {
     font-size: 16px;
     margin-bottom: 10px;
-
-/* Global Section Padding */
-section {
-    padding-left: 20px;
-    padding-right: 20px;
-}
-
-/* Ensure no extra margins or paddings */
-html, body {
-    height: 100%;
-    overflow-x: hidden;
-}
-
-footer {
-    background-color: #333;
-    color: white;
-    text-align: center;
-    padding: 20px;
-    margin-top: 40px;
 }
