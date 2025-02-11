@@ -1,43 +1,94 @@
-/* Add these styles to your existing styles.css file */
-
-#pdfContainer {
-    width: 100%;
-    max-width: 1000px;
-    margin: 20px auto;
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+}
+/* Header */
+header {
     text-align: center;
-}
-
-#pdfCanvas {
-    max-width: 100%;
-    height: auto;
-    margin: 20px 0;
-    border: 1px solid #ccc;
-}
-
-.pdfControls {
-    margin: 15px 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 15px;
-}
-
-.pdfControls button {
-    background-color: #004c97;
+    background: #004c97;
     color: white;
-    border: none;
-    padding: 8px 16px;
-    border-radius: 4px;
-    cursor: pointer;
+    padding: 30px 20px;
 }
-
-.pdfControls button:hover {
-    background-color: #003366;
+header h1 {
+    margin: 10px 0;
+    font-size: 2.5rem;
 }
-
-.error {
-    color: red;
+header img {
+    border-radius: 50%;
+    margin-top: 15px;
+}
+header p {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+/* Navigation */
+nav {
+    text-align: center;
+    background: #003366;
+    padding: 15px 0;
+}
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 20px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    transition: 0.3s;
+}
+nav a:hover {
+    color: #ffcc00;
+}
+/* Sections */
+section {
+    width: 80%;
+    margin: 40px auto;
     padding: 20px;
-    background-color: #ffebee;
-    border-radius: 4px;
+    background: white;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    opacity: 0;  /* Start invisible */
+    transform: translateY(20px);  /* Start slightly below */
+    transition: opacity 0.5s ease, transform 0.5s ease;  /* Add smooth transition */
+}
+/* When section is visible, animate it */
+section.visible {
+    opacity: 1;  /* Fully visible */
+    transform: translateY(0);  /* Move to its original position */
+}
+h2 {
+    color: #004c97;
+    border-bottom: 3px solid #ffcc00;
+    padding-bottom: 10px;
+}
+p {
+    line-height: 1.6;
+}
+/* Projects */
+.project iframe {
+    border: none;
+    border-radius: 10px;
+}
+/* Contact Section */
+#contact p {
+    font-size: 1.1rem;
+}
+#contact a {
+    color: #004c97;
+    font-weight: bold;
+    text-decoration: none;
+}
+#contact a:hover {
+    text-decoration: underline;
+}
+/* Footer */
+footer {
+    text-align: center;
+    padding: 15px;
+    background: #004c97;
+    color: white;
+    margin-top: 20px;
 }
