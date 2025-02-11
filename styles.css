@@ -1,4 +1,10 @@
 /* General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
@@ -11,6 +17,7 @@ nav {
     background-color: #333;
     padding: 10px 20px;
     text-align: center;
+    margin-bottom: 20px; /* Add space below the navbar */
 }
 
 nav a {
@@ -26,21 +33,60 @@ nav a:hover {
     border-radius: 4px;
 }
 
-/* Home Section */
-#home {
-    padding: 40px;
+/* Header Styles */
+header {
     text-align: center;
+    padding: 40px 20px; /* Add padding for space around header */
+    margin-bottom: 40px; /* Margin below header */
 }
 
-#home h1 {
+header h1 {
+    font-size: 36px;
+    color: #333;
+}
+
+header img {
+    border-radius: 50%;
+    margin-top: 20px;
+}
+
+header p {
+    font-size: 18px;
+    color: #555;
+}
+
+/* About Me Section */
+#about {
+    padding: 40px 20px; /* Add padding */
+    text-align: center;
+    margin-bottom: 40px; /* Margin below the About Me section */
+}
+
+#about h2 {
     font-size: 32px;
     color: #333;
 }
 
-/* Experience Section */
-#experience {
-    padding: 40px;
+#about-me p {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #555;
+}
+
+/* Footer Styles */
+footer {
+    background-color: #333;
+    color: white;
     text-align: center;
+    padding: 20px;
+    margin-top: 40px; /* Add margin at the top of the footer */
+}
+
+/* Experience Section Styles */
+#experience {
+    padding: 40px 20px;
+    text-align: center;
+    margin-bottom: 40px; /* Margin below experience section */
 }
 
 #experience h2 {
@@ -83,6 +129,18 @@ nav a:hover {
 .experience-item ul li {
     font-size: 16px;
     margin-bottom: 10px;
+}
+
+/* Global Section Padding */
+section {
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+/* Ensure no extra margins or paddings */
+html, body {
+    height: 100%;
+    overflow-x: hidden;
 }
 
 footer {
