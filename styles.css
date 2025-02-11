@@ -8,14 +8,26 @@
 body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
-    margin: 0;
     padding: 0;
+}
+
+/* Ensuring Body Padding/Margin Consistency */
+body, html {
+    height: 100%;
+}
+
+/* Global Container for Page Content */
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
 }
 
 /* Navigation Bar Styles */
 nav {
     background-color: #333;
-    padding: 10px 20px;
+    padding: 10px 0;
     text-align: center;
 }
 
@@ -32,20 +44,25 @@ nav a:hover {
     border-radius: 4px;
 }
 
-/* Home Section */
-#home {
-    padding: 40px;
+/* Header Section */
+header {
     text-align: center;
+    padding: 40px 0;
 }
 
-#home h1 {
+header h1 {
     font-size: 32px;
     color: #333;
 }
 
+header img {
+    border-radius: 50%;
+    margin: 20px 0;
+}
+
 /* About Me Section */
 #about {
-    padding: 40px;
+    padding: 40px 0;
     text-align: center;
 }
 
@@ -65,7 +82,7 @@ nav a:hover {
 
 /* Experience Section */
 #experience {
-    padding: 40px;
+    padding: 40px 0;
     text-align: center;
 }
 
@@ -74,14 +91,14 @@ nav a:hover {
     color: #333;
 }
 
-/* Individual Experience Box Styling */
+/* Experience Box Styling */
 .experience-item.box {
     background-color: #ADD8E6; /* Light blue color */
     border-radius: 12px; /* Rounded edges */
     padding: 20px;
     margin: 20px 0;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    color: #333; /* Text color remains normal */
+    color: #333;
 }
 
 .experience-item.box:hover {
@@ -90,8 +107,8 @@ nav a:hover {
 }
 
 .experience-item h3 {
-    color: #333;
     font-size: 24px;
+    color: #333;
 }
 
 .experience-item p {
@@ -109,6 +126,7 @@ nav a:hover {
 .experience-item ul li {
     font-size: 16px;
     margin-bottom: 10px;
+}
 
 /* Footer Styles */
 footer {
@@ -119,26 +137,25 @@ footer {
     margin-top: 40px;
 }
 
-/* Ensure consistent layout across all pages */
+/* Ensure sections are spaced out and aligned */
 section {
-    margin-left: 20px;
-    margin-right: 20px;
+    padding: 40px 0;
 }
 
-h2, h3 {
-    margin-top: 20px;
-    color: #333;
-}
-
-/* For additional sections like projects, education, contact, etc. */
 section p {
     margin-bottom: 20px;
     color: #666;
     font-size: 16px;
 }
 
-/* Page-specific content sections (apply similar padding) */
+/* Specific Page Sections (Projects, Education, Contact, etc.) */
 #projects, #education, #contact {
-    padding: 40px;
+    padding: 40px 0;
     text-align: center;
+}
+
+/* Section Header Styling */
+h2 {
+    margin-bottom: 20px;
+    color: #333;
 }
