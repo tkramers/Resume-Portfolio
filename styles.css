@@ -70,6 +70,26 @@ p {
     line-height: 1.6;
 }
 
+/* Experience Section */
+.experience-item {
+    border: 2px solid #6ea6eb; /* Border color */
+    padding: 20px; /* Add padding inside the box */
+    margin-bottom: 20px; /* Space between each experience item */
+    border-radius: 8px; /* Rounded corners */
+    background-color: #f4faff; /* Light background color */
+}
+
+h3 {
+    color: #333; /* Change the color of the experience title */
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+ul {
+    list-style-type: disc;
+    margin-left: 20px;
+}
+
 /* Projects */
 .project iframe {
     border: none;
