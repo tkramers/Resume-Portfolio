@@ -113,11 +113,19 @@ ul {
     align-items: center;
 }
 
+
+.subtext {
+    font-size: 0.9em; /* Makes the text slightly smaller */
+    color: #555; /* Optional: Slightly lighter text for subtlety */
+    margin-top: -8px; /* Adjust spacing */
+}
+
 .date {
     float: right;
     font-weight: normal;
     color: #555;
 }
+
 
 /* Projects */
 .project iframe {
