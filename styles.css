@@ -90,6 +90,26 @@ ul {
     margin-left: 20px;
 }
 
+/* Education Section */
+.education-item {
+    border: 2px solid #6ea6eb; /* Border color */
+    padding: 20px; /* Add padding inside the box */
+    margin-bottom: 20px; /* Space between each education item */
+    border-radius: 8px; /* Rounded corners */
+    background-color: #f4faff; /* Light background color */
+}
+
+h3 {
+    color: #333; /* Change the color of the education title */
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+p {
+    font-size: 1.1em;
+    line-height: 1.6;
+}
+
 /* Projects */
 .project iframe {
     border: none;
