@@ -108,6 +108,14 @@ ul {
 #education p {
     font-size: 1.1em;
     line-height: 1.6;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.dates {
+    font-weight: normal;
+    color: #666;
 }
 
 /* Projects */
