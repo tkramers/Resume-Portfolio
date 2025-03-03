@@ -21,7 +21,7 @@ header h1 {
 }
 
 header img {
-    border-radius: 50%;
+    border-radius: 0; /* Changed to make the image square */
     margin-top: 15px;
 }
 
