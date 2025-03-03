@@ -1,44 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Experience - Tess Kramer</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-
-    <nav>
-        <a href="index.html">Home</a>
-        <a href="projects.html">Projects</a>
-        <a href="experience.html">Experience</a>
-        <a href="education.html">Education</a>
-        <a href="contact.html">Contact</a>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tess Kramer - Portfolio</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="mediaqueries.css" />
+  </head>
+  <body>
+    <nav id="desktop-nav">
+      <div class="logo">Tess Kramer</div>
+      <div>
+        <ul class="nav-links">
+          <li><a href="#about">About</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
     </nav>
-
-    <header>
-        <h1>Tess Kramer</h1>
-        <img src="https://github.com/tkramers/Resume-Portfolio/blob/main/profile.jpg?raw=true" alt="Tess Kramer" width="200">
-        <p>Analytics Specialist | Data Science Analyst</p>
-    </header>    
-
-    <section id="about">
-        <h2>About Me</h2>
-        <div id="about-me">
-            <p>
-                Hi, I’m Tess Kramer! I’m a recent Chapman University grad and currently pursuing my Master’s in Business Analytics at the University of San Diego.
-                <br><br>
-                I’ve had the incredible privilege of facilitating a data science in entertainment conference, where I got to connect with industry leaders and dive deep into the power of analytics in storytelling.
-                <br><br>
-                I’ve also worked with amazing companies to help drive their mission through data-driven strategies optimizing campaigns, spotting trends, and uncovering key insights.
-                I’m all about blending creativity with numbers, and I can’t wait to keep exploring how data shapes the way we engage with the world!
-            </p>
+    <section id="profile">
+      <div class="section__text">
+        <p class="section__text__p1">Hello, I'm</p>
+        <h1 class="title">Tess Kramer</h1>
+        <p class="section__text__p2">Data Analyst & Marketing Specialist</p>
+        <div class="btn-container">
+          <button class="btn btn-color-2" onclick="window.open('./assets/TessKramer_Resume.pdf')">Download CV</button>
+          <button class="btn btn-color-1" onclick="location.href='./#contact'">Contact Info</button>
         </div>
+        <div id="socials-container">
+          <img src="./assets/linkedin.png" alt="LinkedIn" class="icon" onclick="location.href='https://www.linkedin.com/in/tess-kramer/'" />
+          <img src="./assets/github.png" alt="GitHub" class="icon" onclick="location.href='https://github.com/tesskramer'" />
+        </div>
+      </div>
     </section>
-
+    <section id="about">
+      <p class="section__text__p1">Get To Know More</p>
+      <h1 class="title">About Me</h1>
+      <div class="text-container">
+        <p>I am a data-driven storyteller passionate about uncovering insights through metrics. With experience in marketing and data analytics, I have managed ad campaigns, enhanced ROI, and collaborated with Fortune 500 companies.</p>
+      </div>
+    </section>
+    <section id="experience">
+      <h1 class="title">Experience</h1>
+      <div class="experience-details-container">
+        <article>
+          <h3>Digital Marketing Specialist</h3>
+          <p>Managed TikTok ad accounts with budgets from $10,000 to $50,000, collaborating with Paid Strategists to optimize campaigns for Fortune 500 companies.</p>
+        </article>
+        <article>
+          <h3>Social Media Manager</h3>
+          <p>Grew organic engagement by 25% and increased followers by 500 through targeted content strategies across multiple platforms.</p>
+        </article>
+      </div>
+    </section>
     <footer>
-        <p>© 2025 Tess Kramer. All rights reserved.</p>
+      <p>Copyright &#169; 2025 Tess Kramer. All Rights Reserved.</p>
     </footer>
-
-</body>
+  </body>
 </html>
