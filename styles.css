@@ -5,6 +5,12 @@ body {
     padding: 0;
     background-color: #f4f4f4;
     color: #333;
+    box-sizing: border-box; /* Ensures padding and borders count towards total size */
+}
+
+/* Apply box-sizing to all elements */
+*, *:before, *:after {
+    box-sizing: inherit;
 }
 
 /* Header */
@@ -44,13 +50,13 @@ nav a {
     font-size: 1.2rem;
     font-weight: bold;
     transition: 0.3s;
-    padding: 8px 15px; /* Added padding for hover effect */
-    border-radius: 20px; /* Rounded edges for hover effect */
+    padding: 8px 15px;
+    border-radius: 20px;
 }
 
 nav a:hover {
     color: #ffcc00;
-    background-color: rgba(255, 204, 0, 0.2); /* Subtle background on hover */
+    background-color: rgba(255, 204, 0, 0.2);
 }
 
 /* Sections */
@@ -74,12 +80,25 @@ p {
 }
 
 /* Experience Section */
-.experience-item {
+.experience-item, #education .education-item {
     border: 2px solid #6ea6eb;
     padding: 20px;
     margin-bottom: 20px;
     border-radius: 8px;
     background-color: #f4faff;
+    width: 300px;  /* Fixed width for consistency */
+    min-height: 200px;  /* Consistent height */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* Flex container for experience and education */
+.experience-container, #education .education-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
 }
 
 h3 {
@@ -94,14 +113,6 @@ ul {
 }
 
 /* Education Section */
-#education .education-item {
-    border: 2px solid #6ea6eb;
-    padding: 20px;
-    margin-bottom: 20px;
-    border-radius: 8px;
-    background-color: #f4faff;
-}
-
 #education h3 {
     color: #333;
     font-size: 1.5em;
@@ -117,9 +128,9 @@ ul {
 }
 
 .subtext {
-    font-size: 0.9em; /* Makes the text slightly smaller */
-    color: #555; /* Optional: Slightly lighter text for subtlety */
-    margin-top: -8px; /* Adjust spacing */
+    font-size: 0.9em;
+    color: #555;
+    margin-top: -8px;
 }
 
 .date {
