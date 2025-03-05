@@ -79,6 +79,7 @@ p {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    text-align: center; /* Added to center text */
 }
 /* Flex container for experience and education */
 .experience-container, #education .education-container {
@@ -91,33 +92,41 @@ h3 {
     color: #333;
     font-size: 1.5em;
     margin-bottom: 10px;
+    text-align: center; /* Center headings */
 }
 ul {
     list-style-type: disc;
     margin-left: 20px;
+    align-self: center;
+    text-align: left; /* Keep list items left-aligned for readability */
 }
 /* Education Section */
 #education h3 {
     color: #333;
     font-size: 1.5em;
     margin-bottom: 10px;
+    text-align: center; /* Center headings */
 }
 #education p {
     font-size: 1.1em;
     line-height: 1.6;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
+    text-align: center;
 }
 .subtext {
     font-size: 0.9em;
     color: #555;
     margin-top: -8px;
+    text-align: center; /* Center subtext */
 }
 .date {
-    float: right;
+    text-align: center; /* Center date */
     font-weight: normal;
     color: #555;
+    display: block; /* Ensure it takes full width */
+    margin-top: 10px;
 }
 /* Projects */
 .project iframe {
@@ -170,7 +179,6 @@ footer {
     color: white;
     margin-top: 20px;
 }
-
 /* Consistent sizing for Canva embeds */
 .canva-embed-container,
 div[style*="padding-top: 56.2500%"] {
@@ -185,7 +193,6 @@ div[style*="padding-top: 56.2500%"] {
     overflow: hidden;
     border-radius: 8px;
 }
-
 .canva-embed-container iframe,
 div[style*="padding-top: 56.2500%"] iframe {
     position: absolute;
