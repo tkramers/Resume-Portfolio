@@ -68,19 +68,24 @@ p {
     line-height: 1.6;
 }
 /* Experience Section */
+#experience {
+    text-align: center;  /* Center text inside the section */
+}
 .experience-item, #education .education-item {
     border: 2px solid #6ea6eb;
     padding: 20px;
     margin-bottom: 20px;
     border-radius: 8px;
     background-color: #f4faff;
-    width: 300px;  /* Fixed width for consistency */
+    width: 80%;  /* Adjust width for responsiveness */
+    max-width: 600px;  /* Optional: Limit the maximum width */
     min-height: 200px;  /* Consistent height */
     display: flex;
     flex-direction: column;
     align-items: center; /* Horizontally center */
     text-align: center; /* Center text */
     justify-content: center; /* Vertically center */
+    margin: 0 auto;  /* Center the cards horizontally */
 }
 
 .experience-item h3, 
@@ -93,7 +98,7 @@ p {
 #education .education-item ul {
     list-style-position: inside; /* Move bullet points inside */
     padding-left: 0; /* Remove default left padding */
-    text-align: left; /* Keep list text left-aligned for readability */
+    text-align: center;  /* Center-align list items */
     width: 100%; /* Ensure full width */
     display: flex;
     flex-direction: column;
@@ -102,7 +107,7 @@ p {
 
 .experience-item li, 
 #education .education-item li {
-    text-align: left; /* Keep list text left-aligned */
+    text-align: center;  /* Center-align list items */
     width: 90%; /* Adjust width as needed */
     margin: 5px 0;
 }
