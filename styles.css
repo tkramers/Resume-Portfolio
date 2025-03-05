@@ -78,21 +78,33 @@ p {
     min-height: 200px;  /* Consistent height */
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    align-items: center; /* Center items horizontally */
+    align-items: center; /* Horizontally center */
     text-align: center; /* Center text */
-}
-
-.experience-item p, 
-#education .education-item p {
-    text-align: center;
-    width: 100%;
+    justify-content: center; /* Vertically center */
 }
 
 .experience-item h3, 
 #education .education-item h3 {
     text-align: center;
     width: 100%;
+}
+
+.experience-item ul, 
+#education .education-item ul {
+    list-style-position: inside; /* Move bullet points inside */
+    padding-left: 0; /* Remove default left padding */
+    text-align: left; /* Keep list text left-aligned for readability */
+    width: 100%; /* Ensure full width */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.experience-item li, 
+#education .education-item li {
+    text-align: left; /* Keep list text left-aligned */
+    width: 90%; /* Adjust width as needed */
+    margin: 5px 0;
 }
 
 /* Flex container for experience and education */
@@ -102,15 +114,13 @@ p {
     gap: 20px;
     flex-wrap: wrap;
 }
+
 h3 {
     color: #333;
     font-size: 1.5em;
     margin-bottom: 10px;
 }
-ul {
-    list-style-type: disc;
-    margin-left: 20px;
-}
+
 /* Education Section */
 #education h3 {
     color: #333;
