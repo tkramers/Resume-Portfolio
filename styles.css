@@ -79,8 +79,22 @@ p {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    text-align: center; /* Added to center text */
+    align-items: center; /* Center items horizontally */
+    text-align: center; /* Center text */
 }
+
+.experience-item p, 
+#education .education-item p {
+    text-align: center;
+    width: 100%;
+}
+
+.experience-item h3, 
+#education .education-item h3 {
+    text-align: center;
+    width: 100%;
+}
+
 /* Flex container for experience and education */
 .experience-container, #education .education-container {
     display: flex;
@@ -92,41 +106,33 @@ h3 {
     color: #333;
     font-size: 1.5em;
     margin-bottom: 10px;
-    text-align: center; /* Center headings */
 }
 ul {
     list-style-type: disc;
     margin-left: 20px;
-    align-self: center;
-    text-align: left; /* Keep list items left-aligned for readability */
 }
 /* Education Section */
 #education h3 {
     color: #333;
     font-size: 1.5em;
     margin-bottom: 10px;
-    text-align: center; /* Center headings */
 }
 #education p {
     font-size: 1.1em;
     line-height: 1.6;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    text-align: center;
 }
 .subtext {
     font-size: 0.9em;
     color: #555;
     margin-top: -8px;
-    text-align: center; /* Center subtext */
 }
 .date {
-    text-align: center; /* Center date */
+    float: right;
     font-weight: normal;
     color: #555;
-    display: block; /* Ensure it takes full width */
-    margin-top: 10px;
 }
 /* Projects */
 .project iframe {
